@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Repeat } from '../repeat';
+import { Repeat } from './repeat';
 
 @Component({
   selector: 'app-root',
