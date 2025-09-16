@@ -9,4 +9,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('Exp2');
+  courses = ["Angular", "MongoDB", "Express", "Node JS"];
 }
