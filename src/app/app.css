@@ -1,0 +1,12 @@
+.Color{
+    color: blue;
+}
+
+.Hover:hover{
+    color: red;
+    font-size: xx-large;
+}
+
+.Big{
+    font-size: large;
+}
