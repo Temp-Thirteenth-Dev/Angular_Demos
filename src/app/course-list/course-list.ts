@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './course-list.css'
 })
 export class CourseList {
-
+  courses=['Information Security','Quantum Technology','Artificial Super Intelligence'];
 }
