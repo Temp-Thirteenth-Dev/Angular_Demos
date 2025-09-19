@@ -1,3 +1,6 @@
 <input type="text" [(ngModel)]="name"> <br/>
-<div>Hello , {{ name }}</div>
+<div [style.color] = "want_blue ? 'blue' : 'red' ">Hello , {{ name }}</div>
+
+<button (click) ="toBlue()" >Want in Blue</button>
+
 <router-outlet />
