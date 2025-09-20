@@ -10,16 +10,15 @@ import { CourseList } from './course-list/course-list';
 })
 export class App {
   protected readonly title = signal('components');
-  sub_name = 'TOC';
+
+  message = '';
   registered_courses: string[] = [];
-
-  submit(name: string) {
-    this.sub_name = name;
-  }
-
-  receive_registration($event: string) {
-    if (!this.registered_courses.includes($event)) {
-      this.registered_courses.push($event);
+  
+  courseReg(courseName: string) {
+    this.message = `Your registration for ${courseName} is successful`;
+        if (!this.registered_courses.includes(courseName)) {
+        this.registered_courses.push(courseName);
     }
-  }
+  }  
+
 }
