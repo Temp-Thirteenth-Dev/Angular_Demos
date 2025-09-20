@@ -12,7 +12,7 @@ export class App {
   protected readonly title = signal('Exp2');
   name = "Enter Your Name";
   want_blue = false; 
-  toBlue(){
-    this.want_blue = true;
-  }
+  // toBlue(){
+  //   this.want_blue = true;
+  // }
 }
