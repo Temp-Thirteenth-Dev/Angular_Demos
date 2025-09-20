@@ -10,10 +10,10 @@ export class CourseList {
     @Input() course_name!:string;
     @Output() registered_course_emitter=new EventEmitter<string>();
     course_details=[
-        {"id":"sub-1","name":"course-1",'branch':'b1'},
-        {"id":"sub-2","name":"course-2",'branch':'b1'},
-        {"id":"sub-3","name":"course-3",'branch':'b2'},
-        {"id":"sub-4","name":"course-4",'branch':'b2'}
+        {"id":"TOC","name":"Thoery of Computation",'branch':'CS'},
+        {"id":"CD","name":"course-2",'Compiler Design':'CS'},
+        {"id":"FMPMC","name":"FMPMC",'branch':'EC'},
+        {"id":"DM","name":"Discrete Mathemtics",'branch':'HBS'}
     ]
     send_registration(){
         this.registered_course_emitter.emit(this.course_name);

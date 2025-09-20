@@ -10,12 +10,16 @@ import { CourseList } from './course-list/course-list';
 })
 export class App {
   protected readonly title = signal('components');
-  sub_name='';
-  registered_courses:string[]=[];
-  submit(name:string){
-    this.sub_name=name;
+  sub_name = '';
+  registered_courses: string[] = [];
+
+  submit(name: string) {
+    this.sub_name = name;
   }
-  receive_registration($event:string){
-    this.registered_courses.push($event);
+
+  receive_registration($event: string) {
+    if (!this.registered_courses.includes($event)) {
+      this.registered_courses.push($event);
+    }
   }
 }
