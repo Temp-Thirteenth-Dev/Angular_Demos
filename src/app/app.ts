@@ -10,7 +10,7 @@ import { CourseList } from './course-list/course-list';
 })
 export class App {
   protected readonly title = signal('components');
-  sub_name = '';
+  sub_name = 'TOC';
   registered_courses: string[] = [];
 
   submit(name: string) {
