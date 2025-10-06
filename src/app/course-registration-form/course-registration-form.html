@@ -1,0 +1,66 @@
+<div>
+  <h1>Course Registration Form</h1>
+  <form [hidden]="submitted" (ngSubmit)="onSubmit(id.value, name.value, selectedCourses)" #studentForm="ngForm">
+
+    <div>
+      <label for="id">Student ID</label>
+      <input type="text"
+             id="id"
+             required
+             [(ngModel)]="model.id"
+             name="id"
+             #id="ngModel">
+      <div [hidden]="id.valid || id.pristine">
+        Student ID is required
+      </div>
+    </div>
+
+    <div>
+      <label for="name">Student Name</label>
+      <input type="text"
+             id="name"
+             required
+             [(ngModel)]="model.name"
+             name="name"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine">
+        Name is required
+      </div>
+    </div>
+
+    <div>
+      <label>Courses : </label>
+      @for(course of courses; track course){
+        <input type="checkbox"
+               [value]="course"
+               (change)="onCourseChange($event)">
+        {{ course }}
+      }
+      @if(selectedCourses.length===0 && studentForm.submitted){
+        <div>
+            At least one course must be selected
+        </div>
+      }
+    </div>
+
+    <button type="submit"
+            [disabled]="!studentForm.form.valid">
+      Submit
+    </button>
+
+    <button type="button"
+            (click)="newStudent(); studentForm.reset()">
+      Reset
+    </button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div>Student ID: {{ model.id }}</div>
+  <div>Name: {{ model.name }}</div>
+  <div>Courses: {{ model.registered_courses.join(', ') }}</div>
+  <button type="button" (click)="submitted=false">
+    Edit
+  </button>
+</div>
