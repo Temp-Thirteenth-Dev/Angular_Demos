@@ -17,22 +17,13 @@
 
 </table>
 
-<!-- 
-OPtional 
- -->
 
-<select name="book_name" id="book_name" #book_id>
-    @for (book of my_books; track book.id) {
-        <option value="{{book.id}}">{{book.name}}</option>
-    }
-</select>
-
-
-<button (click)="fetchBook(book_id.value )">Fetch</button>
-
-@if(fetchedBook){
+@if(my_books && my_books.length>0){
     <h2>Details :</h2>
-    <p>ID:{{fetchedBook.id}}</p>
-    <p>Name: {{fetchedBook.name}}</p>
+    <p>ID:{{my_books[counter()%my_books.length].id}}</p>
+    <p>Name: {{my_books[counter()%my_books.length].name}}</p>
 
 }
+
+
+Counter: {{counter()}}
