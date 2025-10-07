@@ -1,0 +1,35 @@
+<h1>Welcome to our company "OurCompany"</h1>
+
+@if(!submitted){
+    <h2>Emp Form :</h2>
+    <form [formGroup] = "empform" >
+    <label for="first-name">First Name :</label>
+    <input type="text" id="first-name" formControlName="firstName">
+        <p [hidden] = "empform.controls['firstName'].valid || empform.controls['firstName'].pristine"  > FirstName shouldn't be empty</p>
+    <br>
+    <label for="last-name">Last Name :</label>
+    <input type="text" id="last-name" formControlName="lastName">
+    <br>
+    <label for="email">Email : </label>
+    <input type="email" id="email" formControlName="email">
+    
+    <p [hidden]="empform.controls['email'].pristine || !empform.controls['email'].errors?.['emailInvalid']"style="color:red">
+      {{ empform.controls['email'].errors?.['emailInvalid'].message }}
+    </p>
+
+    <br>
+    <button type="submit" (click) ="submitted=true" [disabled]="!empform.valid" >Submit </button>
+        
+</form>
+
+
+}
+
+@if(submitted){
+    <h2>Form Submitted. Thank you.</h2>
+    <p>First Name {{empform.value.firstName}} </p>
+    <p>Last Name : {{empform.value.lastName}}</p>
+    <p>Email : {{empform.value.email}}</p>
+
+    <button (click)="submitted=false"> Edit </button>
+}
