@@ -1,0 +1,38 @@
+<p>My Books: </p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>NAME</td>
+        </tr>
+    </thead>
+    @for(book of my_books; track book.id){
+        <tr>
+            <td>ID : {{book.id}} </td>
+            <td>NAME : {{book.name}}</td>
+
+        </tr>
+    }   
+
+</table>
+
+<!-- 
+OPtional 
+ -->
+
+<select name="book_name" id="book_name" #book_id>
+    @for (book of my_books; track book.id) {
+        <option value="{{book.id}}">{{book.name}}</option>
+    }
+</select>
+
+
+<button (click)="fetchBook(book_id.value )">Fetch</button>
+
+@if(fetchedBook){
+    <h2>Details :</h2>
+    <p>ID:{{fetchedBook.id}}</p>
+    <p>Name: {{fetchedBook.name}}</p>
+
+}
