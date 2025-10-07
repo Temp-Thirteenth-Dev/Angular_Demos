@@ -1,0 +1,33 @@
+<h1>Welocme to Angular Course, Fill the form to register</h1>
+
+@if(!submitted){
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <label >
+            Enter your Student ID :
+            <input type="text" name="id" required [(ngModel)]="stud.id" #id="ngModel">
+        </label>
+        <br>
+        <label >
+            Name : 
+            <input type="text" name="name" required [(ngModel)]="stud.name" #name="ngModel">
+        </label>
+        <br>
+        <label >
+            Email :
+            <input type="email" id="email" name="email" required appEmailValidator [(ngModel)]="stud.email" #email="ngModel">
+        </label>
+        @if(email.errors?.['emailInvalid']&& email.touched){
+            <p>invalid email format</p>
+        }
+        <br>
+        <button type="submit" [disabled]="f.invalid">Submit</button>
+    </form>
+}
+
+@if(submitted){
+    <h3>Thank you for registering into Angular Course</h3>
+    <p>Details Submitted :</p>
+    <p>id : {{stud.id}}</p>
+    <p>Name : {{stud.name}}</p>
+    <p>mail : {{stud.email}}</p>
+}
