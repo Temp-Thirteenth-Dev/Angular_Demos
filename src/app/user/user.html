@@ -1,3 +1,11 @@
 <p>user works!</p>
 <a href="book">Go to book component</a>
-<a href="home">Go to home component</a>
+<br>
+<a href="">Go to home component</a>
+
+<h2>Login</h2>
+<input type="text" [(ngModel)]="username" placeholder="Username"><br>
+<input type="password" [(ngModel)]="password" placeholder="Password"><br>
+<button (click)="login()">Login</button>
+<br>
+<button (click)="logout()">Logout</button>
