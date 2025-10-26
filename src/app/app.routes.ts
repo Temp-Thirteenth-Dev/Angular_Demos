@@ -18,7 +18,8 @@ export const routes: Routes = [
     },
     {
         path:'book',
-        component:Book,
+        // component:Book,
         canActivate:[authGuard],
+        loadComponent: ()=> import('./book/book').then(m=>m.Book)
     }
 ];
